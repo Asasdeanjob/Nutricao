@@ -1,10 +1,10 @@
-var titulo = document.querySelector("h1");
-titulo.textContent = "Dan Nutri";
-console.log(titulo);
+var titulo          = document.querySelector(".titulo");
 
-var trPaulo = document.querySelector("#paulo");
-console.log(trPaulo);
+titulo.textContent  = "Dan Nutrição";
 
-var tdPeso = trPaulo.querySelector(".info-peso");
-tdPeso.textContent = "150";
-console.log(tdPeso);
+var paciente        = document.querySelector("#primeiro-paciente");
+var tdPeso          = paciente.querySelector(".info-peso");
+var peso            = tdPeso.textContent;
+
+var tdAlto          = paciente.querySelector(".info-altura");
+var alto            = tdAlto.textContent;
