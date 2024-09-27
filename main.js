@@ -2,19 +2,36 @@ var titulo          = document.querySelector(".titulo");
 
 titulo.textContent  = "Dan Nutrição";
 
-var paciente        = document.querySelector("#primeiro-paciente");
-var tdPeso          = paciente.querySelector(".info-peso");
-var peso            = tdPeso.textContent;
+var pacientes       = document.querySelectorAll(".paciente");
 
-var tdAlto          = paciente.querySelector(".info-altura");
-var alto            = tdAlto.textContent;
-
-var tdImc = paciente.querySelector(".info-imc");
-var imc = peso / (alto * alto);
-
-tdImc.textContent = imc;
-
-if (peso < 0) {
-  tdImc.textContent = "peso inválido";
+for (var i = 0; i < 5; i++) {
+  console.log(pacientes[i]);
+  
+  var tdPeso = pacientes[i].querySelector(".info-peso");
+  var peso = tdPeso.textContent;
+  
+  var tdAlto = pacientes[i].querySelector(".info-altura");
+  var alto = tdAlto.textContent;
+  
+  var tdImc = pacientes[i].querySelector(".info-imc");
+  
+  var pesoVal = true;
+  var altoVal = true;
+  
+  if (peso < 0 || peso > 600) {
+    tdImc.textContent = "peso inválido";
+    pesoVal = false;
+  }
+  
+  if (alto < 0 || alto > 2.8) {
+    tdImc.textContent = "altura inválida"
+    altoVal = false;
+  }
+  
+  if (pesoVal && altoVal) {
+    var imc = peso / (alto * alto);
+    tdImc.textContent = imc;
+  }
 }
 
+var paciente        = document.querySelector("#primeiro-paciente");
