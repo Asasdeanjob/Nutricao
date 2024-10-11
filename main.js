@@ -1,48 +1,56 @@
-/*Titulo*/
-var titulo            = document.querySelector(".titulo");
-titulo.textContent    = "Dan Nutrição";
-/*Fim Titulo*/
+var titulo              = document.querySelector(".titulo");
+titulo.textContent      = "Hyêsa Nutrição";
 
-/*Pacientes*/
-var pacientes         = document.querySelectorAll(".paciente");
+var pacientes           = document.querySelectorAll(".paciente");
 
-for (var i = 0; i < 5; i++) {
+for(var i = 0; i < 5; i++) {
 
-  console.log(pacientes[i]);
+  var tdPeso            = pacientes[i].querySelector(".info-peso");
+  var peso              = tdPeso.textContent;
 
-  var tdPeso          = pacientes[i].querySelector(".info-peso");
-  var peso            = tdPeso.textContent;
+  var tdAlto            = pacientes[i].querySelector(".info-altura");
+  var alto              = tdAlto.textContent;
 
-  var tdAlto          = pacientes[i].querySelector(".info-altura");
-  var alto            = tdAlto.textContent;
+  var tdImc             = pacientes[i].querySelector(".info-imc");
 
-  var tdImc           = pacientes[i].querySelector(".info-imc");
+  var pesoVal           = true;
+  var altoVal           = true;
 
-  var pesoVal         = true;
-  var altoVal         = true;
+  if(peso < 0 || peso > 600) {
 
-  if (peso < 0 || peso > 600) {
-
-    tdImc.textContent = "peso inválido";
-    pesoVal           = false;
-    pacientes[i].style.color = "Red";
+    tdImc.textContent   = "Peso inválido!";
+    pesoVal             = false;
+    pacientes[i].classList.add("dados-invalidos");
 
   }
 
-  if (alto < 0 || alto > 2.8) {
+  if (altura < 0 || altura > 2.80){
 
-    tdImc.textContent = "altura inválida"
-    altoVal           = false;
+    tdImc.textContent   = "Altura inválida!"
+    altoVal             = false;
+    pacientes[i].classList.add("dados-invalidos");
 
   }
 
-  if (pesoVal && altoVal) {
+  if(pesoEhValido && alturaEhValida){
 
-    var imc           = peso / (alto * alto);
-    tdImc.textContent = imc;
+    var imc             = peso / (alto * alto);
+    tdImc.textContent   = imc.toFixed(2);
 
   }
 }
 
-var paciente          = document.querySelector("#primeiro-paciente");
-/*Fim Paciente*/
+var botaoAdicionar      = document.querySelector("#adicionar-paciente");
+
+botaoAdicionar.addEventListener("click", function(event){
+
+  event.preventDeFault();
+
+  var form              = document.querySelector("#form-adiciona");
+
+  var nome              = form.nome.value;
+  var peso              = form.peso.value
+  var alrura            = form.altura.value
+  var percentual        = form.percentual.value
+
+});
