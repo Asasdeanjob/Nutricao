@@ -1,2 +1,4 @@
-# 2Tec-Nutricao
-Projeto base para uso dos alunos do 2 ano do curso técnico em desenvolvimento de sistemas.
+# joao-nutricao
+Projeto desenvolvido em curso de JavaScript da Alura.
+
+Link para visualizar o site: https://caetano-felipe.github.io/joao-nutricao/index.html
